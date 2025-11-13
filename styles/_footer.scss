@@ -1,0 +1,81 @@
+@use "./variables";
+@use "./mixin";
+
+footer {
+  padding: 20px 30px;
+  margin-top: 50px;
+
+  // Footer Content
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem 4rem;
+    margin-bottom: 50px;
+    align-items: start;
+
+    // Box
+    .box {
+      @include mixin.flexBox;
+      align-items: unset;
+      flex-direction: column;
+      gap: 10px;
+
+      // Title
+      h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      // List
+      ul {
+        @include mixin.flexBox;
+        align-items: unset;
+        flex-direction: column;
+        gap: 0.8rem;
+
+        a {
+          color: #979797;
+          transition: variables.$transition;
+          display: block;
+
+          &:hover {
+            color: variables.$text-color;
+            transform: translateX(-5px);
+          }
+        }
+      }
+
+      // Social
+      .social-links {
+        @include mixin.flexBox;
+        gap: 10px;
+        a {
+          background-color: #202020;
+          width: 45px;
+          height: 45px;
+          display: grid;
+          place-items: center;
+          border-radius: 50%;
+          font-size: 20px;
+          transition: variables.$transition;
+
+          &:hover {
+            background-color: variables.$main-color;
+            color: variables.$bg-color;
+            transform: translateX(-5px);
+          }
+        }
+      }
+    }
+
+    // Copyright
+    .copyright {
+      text-align: center;
+      font-size: 15px;
+      color: #979797;
+      span {
+        color: #535353;
+      }
+    }
+  }
+}
